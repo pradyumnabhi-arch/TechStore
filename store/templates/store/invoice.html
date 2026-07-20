@@ -1,0 +1,99 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-4">
+
+        <div class="text-center">
+
+            <h2 class="text-success">🧾 TechStore Invoice</h2>
+
+            <hr>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <h5>Customer Details</h5>
+
+                <p><strong>Name:</strong> {{ order.name }}</p>
+                <p><strong>Email:</strong> {{ request.user.email }}</p>
+                <p><strong>Mobile:</strong> {{ order.mobile }}</p>
+
+                <p>
+                <strong>Address:</strong><br>
+                {{ order.address }}<br>
+                {{ order.city }}, {{ order.state }} - {{ order.pincode }}
+                </p>
+
+                <p><strong>Date:</strong> {{ order.ordered_at|date:"d M Y H:i" }}</p>
+            </div>
+
+            <div class="col-md-6 text-end">
+                <h5>Invoice</h5>
+
+                <p><strong>Invoice ID:</strong> #{{ order.id }}</p>
+                <p><strong>Payment:</strong> {{ order.payment_method }}</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <table class="table table-bordered">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th>Product</th>
+                    <th>Amount</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>{{ order.product_name }}</td>
+                    <td>₹{{ order.amount }}</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="text-end">
+
+            <h4 class="text-success">
+                Total : ₹{{ order.amount }}
+            </h4>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="text-muted">
+                Thank you for shopping with <strong>TechStore</strong>.
+            </p>
+
+            <button onclick="window.print()" class="btn btn-primary">
+                🖨️ Print Invoice
+            </button>
+
+            <a href="{% url 'home' %}" class="btn btn-success">
+                🛒 Continue Shopping
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

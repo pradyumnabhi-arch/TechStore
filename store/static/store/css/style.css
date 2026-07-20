@@ -1,0 +1,250 @@
+body{
+    background-color:#f8f9fa;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:bold;
+}
+
+/* Product Card */
+
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
+.card img{
+    height:250px;
+    object-fit:cover;
+}
+
+/* Buttons */
+
+.btn-primary{
+    width:100%;
+    font-weight:bold;
+}
+
+.btn-success{
+    font-weight:bold;
+}
+
+.btn-warning{
+    font-weight:bold;
+}
+
+/* Product Detail */
+
+.product-image{
+    width:100%;
+    border-radius:15px;
+}
+
+/* Cart */
+
+.cart-image{
+    height:180px;
+    object-fit:cover;
+}
+
+.card-body h3{
+    font-weight:bold;
+}
+
+.text-success{
+    font-weight:bold;
+}
+
+/* Footer */
+
+footer{
+    margin-top:60px;
+    padding:20px;
+    text-align:center;
+    background:#212529;
+    color:white;
+}
+
+.card{
+    border: none;
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card img{
+    border-radius: 15px 15px 0 0;
+}
+
+.btn{
+    border-radius: 10px;
+}
+
+body{
+    background:#f1f3f6;
+}
+
+.carousel-caption{
+    background: rgba(0,0,0,0.35);
+    border-radius:15px;
+    padding:20px;
+}
+
+.carousel-caption h1{
+    text-shadow:2px 2px 10px black;
+}
+
+.carousel-caption p,
+.carousel-caption h4{
+    text-shadow:1px 1px 6px black;
+}
+
+.card{
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.card-img-top{
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top{
+    transform: scale(1.05);
+}
+
+.card-title a{
+    color: #212529;
+    font-weight: bold;
+}
+
+.card-title a:hover{
+    color: #0d6efd;
+}
+
+.btn{
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    transform: scale(1.03);
+}
+
+.navbar{
+    background: linear-gradient(90deg,#0d6efd,#6610f2) !important;
+}
+
+.navbar-brand{
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.navbar .btn{
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.form-control{
+    border-radius: 25px;
+}
+
+.form-control:focus{
+    box-shadow: 0 0 10px rgba(13,110,253,.4);
+    border-color: #0d6efd;
+}
+
+.footer{
+    background: linear-gradient(135deg,#111827,#1f2937);
+    color:white;
+}
+
+.footer h5,
+.footer h3{
+    margin-bottom:15px;
+}
+
+.footer ul{
+    padding:0;
+}
+
+.footer ul li{
+    list-style:none;
+    margin-bottom:10px;
+}
+
+.footer a{
+    color:#ddd;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer a:hover{
+    color:#ffc107;
+    padding-left:6px;
+}
+
+.footer hr{
+    opacity:.3;
+}
+
+.carousel{
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.carousel-item img{
+    transition:transform .5s ease;
+}
+
+.carousel-item:hover img{
+    transform:scale(1.03);
+}
+
+body.bg-light{
+    background: linear-gradient(135deg,#0d6efd,#6610f2);
+}
+
+.card{
+    border-radius:20px;
+}
+
+.form-control{
+    padding:12px;
+}
+
+.btn-primary{
+    padding:12px;
+    font-size:18px;
+}
+
+.card{
+    transition:0.3s;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background:#f8f9fa;
+}

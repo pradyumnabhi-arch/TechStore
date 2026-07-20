@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order History | TechStore</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <h2 class="text-center text-primary mb-4">
+        📦 My Orders
+    </h2>
+
+    {% if orders %}
+
+    <table class="table table-bordered table-striped bg-white">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Payment Method</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for order in orders %}
+
+        <tr>
+            <td>{{ order.product_name }}</td>
+            <td>₹{{ order.amount }}</td>
+            <td>{{ order.payment_method }}</td>
+            <td>{{ order.ordered_at }}</td>
+
+            <td>
+                {% if order.status == "Pending" %}
+                <span class="badge bg-warning text-dark">
+                    {{ order.status }}
+                </span>
+                {% elif order.status == "Delivered" %}
+                <span class="badge bg-success">
+                    {{ order.status }}
+                </span>
+                {% elif order.status == "cancelled" %}
+                <span class="badge bg-danger">
+                    {{ order.status }}
+                </span>
+
+                {% else %}
+                <span class="badge bg-secondary">
+                    {{ order.status }}
+                </span>
+
+                {% endif %}
+            </td>
+            <a href="{% url 'track_order' order.id %}" class="btn btn-primary btn-sm">Track Order</a>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+    <div class="alert alert-info text-center">
+        No orders found.
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
