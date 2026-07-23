@@ -168,19 +168,23 @@
                         </a>
                     </h4>
 
-                    {% if product.name|length > 30 %}
-                        <a href="{% url 'product_detail' product.id %}" class="small text-primary">
-                          More
+                    <h4 class="card-title">
+                        <a href="{% url 'product_detail' product.id %}" class="text-decoration-none">
+                        {{ product.name|truncatechars:30 }}
                         </a>
-                        {% endif %}
+                    </h4>
 
-                    <p class="text-muted">
+                        <a href="{% url 'product_detail' product.id %}" class="small text-primary">
+                            More
+                           </a>
 
+                        <p class="text-muted">
                         {{ product.description|truncatechars:60 }}
-                    </p>
-                        {% if product.description|length > 60 %}
-                        <a href="{% url 'product_detail' product.id %}" class="small text-primary text-decoration-none">Read More</a>
-                        {% endif %}
+                        </p>
+
+                        <a href="{% url 'product_detail' product.id %}" class="small text-primary text-decoration-none">
+                         Read More
+                        </a>
 
                     
                     {% if product.discount > 0 %}
