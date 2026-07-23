@@ -178,7 +178,7 @@
 
                         {{ product.description|truncatechars:60 }}
                     </p>
-                        {% if product.description|length >60 %}
+                        {% if product.description|length > 60 %}
                         <a href="{% url 'product_detail' product.id %}" class="small text-primary text-decoration-none">Read More</a>
                         {% endif %}
 
