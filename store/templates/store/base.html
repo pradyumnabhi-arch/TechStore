@@ -10,64 +10,81 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+<nav class="navbar navbar-expand-lg">
 
     <div class="container">
 
-        <a class="navbar-brand fw-bold" href="/">
-            🛒 TechStore
+        <a class="navbar-brand" href="/">
+            🛒 <span>TechStore</span>
         </a>
 
-        <form class="d-flex mx-auto" method="GET" action="/">
-            <input class="form-control me-2"
-                   type="search"
-                   name="search"
-                   placeholder="Search for products...">
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <button class="btn btn-warning fw-bold">
-                🔍Search
-            </button>
-        </form>
+        <div class="collapse navbar-collapse" id="navbarContent">
 
-        <div>
+            <form class="d-flex mx-auto search-box"
+                  method="GET"
+                  action="/">
 
-            {% if user.is_authenticated %}
+                <input class="form-control"
+                       type="search"
+                       name="search"
+                       placeholder="Search Products...">
 
-    <span class="text-white fw-bold me-3">
-        👋 {{ user.username }}
-    </span>
+                <button class="btn btn-warning ms-2">
+                    🔍
+                </button>
 
-    <a href="{% url 'order_history' %}" class="btn btn-warning btn-sm ms-2">
-        📦 My Orders
-    </a>
+            </form>
 
-    <a href="{% url 'wishlist' %}" class="btn btn-warning btn-sm ms-2">
-        ❤️ Wishlist({{ wishlist_count }})
-    </a>
+            <div class="d-flex align-items-center flex-wrap gap-2">
 
-    <a href="{% url 'cart' %}" class="btn btn-success btn-sm ms-2">
-        🛒 Cart({{ cart_count }})
-    </a>
+                {% if user.is_authenticated %}
 
-    <a href="{% url 'profile' %}" class="btn btn-info btn-sm ms-2">
-    👤 Profile
-    </a>
+                <span class="welcome-text">
+                    👋 {{ user.username }}
+                </span>
 
-    <a href="{% url 'logout' %}" class="btn btn-danger btn-sm ms-2">
-        Logout
-    </a>
+                <a href="{% url 'order_history' %}" class="btn btn-warning btn-sm">
+                    📦 Orders
+                </a>
 
-{% else %}
+                <a href="{% url 'wishlist' %}" class="btn btn-outline-light btn-sm">
+                    ❤️ {{ wishlist_count }}
+                </a>
 
-    <a href="{% url 'login' %}" class="btn btn-light btn-sm">
-        Login
-    </a>
+                <a href="{% url 'cart' %}" class="btn btn-success btn-sm">
+                    🛒 {{ cart_count }}
+                </a>
 
-{% endif %}
+                <a href="{% url 'profile' %}" class="btn btn-info btn-sm">
+                    👤
+                </a>
+
+                <a href="{% url 'logout' %}" class="btn btn-danger btn-sm">
+                    Logout
+                </a>
+
+                {% else %}
+
+                <a href="{% url 'login' %}" class="btn btn-light">
+                    Login
+                </a>
+
+                {% endif %}
+
+            </div>
 
         </div>
 
