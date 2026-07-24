@@ -1,10 +1,13 @@
 from django.contrib import admin
-from .models import Product, Cart, Order, Wishlist, Review, Coupon, ProductImage
+from .models import Product, Cart, Order, Wishlist, Review, Coupon, ProductImage, ProductSpecification
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
 
+class ProductSpecificationInline(admin.TabularInline):
+    model = ProductSpecification
+    extra = 1
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -24,7 +27,10 @@ class ProductAdmin(admin.ModelAdmin):
         'price',
     )
 
-    inlines = [ProductImageInline]
+    inlines = [
+        ProductImageInline,
+        ProductSpecificationInline,
+        ]
 
 
 @admin.register(Cart)
@@ -81,3 +87,4 @@ class ReviewAdmin(admin.ModelAdmin):
 @admin.register(Coupon)
 class CouponAdmin(admin.ModelAdmin):
     list_display =("code", "discount", "active")
+

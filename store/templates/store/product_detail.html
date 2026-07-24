@@ -117,64 +117,31 @@
     {{ product.description }}
 </p>
 
+{% if specifications %}
+
 <div class="card shadow-sm mt-4">
-    <div class="card-body">
-
-        <h4 class="mb-3">
-            📋 Specifications
-        </h4>
-
-        <table class="table">
-
-            <tr>
-                <th>Brand</th>
-                <td>{{ product.brand }}</td>
-            </tr>
-
-            <tr>
-                <th>Model</th>
-                <td>{{ product.model_name }}</td>
-            </tr>
-
-            <tr>
-                <th>RAM</th>
-                <td>{{ product.ram }}</td>
-            </tr>
-
-            <tr>
-                <th>Storage</th>
-                <td>{{ product.storage }}</td>
-            </tr>
-
-            <tr>
-                <th>Processor</th>
-                <td>{{ product.processor }}</td>
-            </tr>
-
-            <tr>
-                <th>Display</th>
-                <td>{{ product.display }}</td>
-            </tr>
-
-            <tr>
-                <th>Battery</th>
-                <td>{{ product.battery }}</td>
-            </tr>
-
-            <tr>
-                <th>Warranty</th>
-                <td>{{ product.warranty }}</td>
-            </tr>
-
-            <tr>
-                <th>Color</th>
-                <td>{{ product.color }}</td>
-            </tr>
-
-        </table>
-
+    <div class="card-header bg-light">
+        <h4 class="mb-0">📋 Specifications</h4>
     </div>
+
+    <table class="table table-striped table-hover mb-0">
+        <tbody>
+
+        {% for spec in specifications %}
+
+        <tr>
+            <th style="width:35%">{{ spec.key }}</th>
+            <td>{{ spec.value }}</td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
 </div>
+
+{% endif %}
 
             <p>
 
