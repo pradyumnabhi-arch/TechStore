@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, Cart, Order, Wishlist, Review
+from .models import Product, Cart, Order, Wishlist, Review, ProductImage
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -35,13 +35,20 @@ def home(request):
 # Product Detail
 def product_detail(request, id):
     product = get_object_or_404(Product, id=id)
-    reviews = Review.objects.filter(product=product)
-    related_products = Product.objects.filter(category=product.category).exclude(id=product.id)[:4]
 
-    return render(request, 'store/product_detail.html', {
-        'product': product,
-        'reviews': reviews,
-        'related_products': related_products
+    product_images = ProductImage.objects.filter(product=product)
+
+    reviews = Review.objects.filter(product=product)
+
+    related_products = Product.objects.filter(
+        category=product.category
+    ).exclude(id=product.id)[:4]
+
+    return render(request, "store/product_detail.html", {
+        "product": product,
+        "product_images": product_images,
+        "reviews": reviews,
+        "related_products": related_products,
     })
 
 def add_review(request, id):

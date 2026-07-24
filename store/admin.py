@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import Product, Cart, Order, Wishlist, Review, Coupon
+from .models import Product, Cart, Order, Wishlist, Review, Coupon, ProductImage
+
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    extra = 1
 
 
 @admin.register(Product)
@@ -19,6 +23,8 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = (
         'price',
     )
+
+    inlines = [ProductImageInline]
 
 
 @admin.register(Cart)
@@ -49,7 +55,7 @@ class OrderAdmin(admin.ModelAdmin):
         'payment_method',
         'ordered_at',
     )
-    search_feilds =(
+    search_fields =(
         'user',
         'product_name',
     )

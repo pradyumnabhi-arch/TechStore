@@ -22,6 +22,16 @@ class Product(models.Model):
     )
 
     description = models.TextField()
+    brand = models.CharField(max_length=100, blank=True)
+    model_name = models.CharField(max_length=200, blank=True)
+    color = models.CharField(max_length=100, blank=True)
+    storage = models.CharField(max_length=50, blank=True)
+    ram = models.CharField(max_length=50, blank=True)
+    battery = models.CharField(max_length=100, blank=True)
+    display = models.CharField(max_length=100, blank=True)
+    processor = models.CharField(max_length=100, blank=True)
+    warranty = models.CharField(max_length=100, blank=True)
+    specifications = models.TextField(blank=True)
     image = models.ImageField(upload_to='products/')
     discount = models.PositiveIntegerField(default=0)
 
@@ -34,6 +44,17 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name="images"
+    )
+    image = models.ImageField(upload_to="products/gallery/")
+
+    def _str_(self):
+        return f"{self.product.name} Image"
 
 
 class Cart(models.Model):
